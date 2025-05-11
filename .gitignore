@@ -8,3 +8,8 @@ terraform.tfstate.backup
 
 # Ignore sensitive files (optional)
 *.tfvars
+echo .terraform/ >> .gitignore
+echo terraform.tfstate >> .gitignore
+echo terraform.tfstate.backup >> .gitignore
+echo mykey.pem >> .gitignore
+echo *.exe >> .gitignore

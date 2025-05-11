@@ -21,22 +21,38 @@ resource "aws_security_group" "db_sg" {
   }
 }
 
-resource "aws_instance" "db" {
-  ami           = "ami-0dd574ef87b79ac6c" # Amazon Linux 2 (eu north)
-  instance_type = "t3.micro"
-  key_name      = "mykey"
-  vpc_security_group_ids = ["sg-0861be155fde3f23c"]
 
-  user_data = <<-EOF
-              #!/bin/bash
-              yum update -y
-              amazon-linux-extras enable postgresql14
-              yum install postgresql-server postgresql -y
-              postgresql-setup initdb
-              systemctl start postgresql
-              systemctl enable postgresql
-              sudo -u postgres psql -c "CREATE DATABASE appdb;"
-              sudo -u postgres psql -c "CREATE USER appuser WITH PASSWORD 'password';"
-              sudo -u postgres psql -d appdb -c "CREATE TABLE messages (id SERIAL PRIMARY KEY, message TEXT);"
-              EOF
+
+
+resource "aws_db_subnet_group" "rds_subnet_group" {
+  name       = "rds-subnet-group"
+  subnet_ids = var.subnet_ids
+
+  tags = {
+    Name = "rds-subnet-group"
+  }
+}
+
+resource "aws_db_instance" "postgres" {
+  identifier        = "ecommerce-db"
+  engine            = "postgres"
+  engine_version    = "12.22"
+  instance_class    = "db.t3.micro"
+  allocated_storage = 20
+  storage_type      = "gp2"
+
+  
+  username          = "postgres"
+  password          = var.db_password
+  port              = 5432
+
+  publicly_accessible = true
+  skip_final_snapshot = true
+
+  vpc_security_group_ids = [aws_security_group.db_sg.id]
+  db_subnet_group_name   = aws_db_subnet_group.rds_subnet_group.name
+
+  tags = {
+    Name = "ecommerce-db"
+  }
 }

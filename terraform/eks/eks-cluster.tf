@@ -43,3 +43,67 @@ module "eks" {
     Name = "my-eks-cluster"
   }
 }
+env {
+  name  = "DB_HOST"
+  value = "ecommerce-db.c9g4wecya4uf.eu-north-1.rds.amazonaws.com:5432"
+}
+
+env {
+  name  = "DB_USER"
+  value = "postgres"
+}
+
+env {
+  name  = "DB_PASSWORD"
+  value = "MySecurePass123!"
+}
+
+env {
+  name  = "DB_NAME"
+  value = "ecommerce"
+}
+env {
+  name = "DB_HOST"
+  valueFrom {
+    secretKeyRef {
+      name = "ecommerce-db-secret"
+      key  = "DB_HOST"
+    }
+  }
+}
+env {
+  name = "DB_PORT"
+  valueFrom {
+    secretKeyRef {
+      name = "ecommerce-db-secret"
+      key  = "DB_PORT"
+    }
+  }
+}
+env {
+  name = "DB_USER"
+  valueFrom {
+    secretKeyRef {
+      name = "ecommerce-db-secret"
+      key  = "DB_USER"
+    }
+  }
+}
+env {
+  name = "DB_PASSWORD"
+  valueFrom {
+    secretKeyRef {
+      name = "ecommerce-db-secret"
+      key  = "DB_PASSWORD"
+    }
+  }
+}
+env {
+  name = "DB_NAME"
+  valueFrom {
+    secretKeyRef {
+      name = "ecommerce-db-secret"
+      key  = "DB_NAME"
+    }
+  }
+}
