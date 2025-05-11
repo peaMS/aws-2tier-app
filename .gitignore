@@ -1,0 +1,10 @@
+# Ignore Terraform provider binaries and state
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Ignore EXEs
+*.exe
+
+# Ignore sensitive files (optional)
+*.tfvars
