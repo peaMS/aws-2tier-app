@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecommerce-backend-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-subnets: subnet-077625e6d0de24c7f,subnet-07deaa4c11766c4a4
+spec:
+  selector:
+    app: ecommerce-backend
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

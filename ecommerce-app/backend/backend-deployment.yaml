@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecommerce-backend
+  template:
+    metadata:
+      labels:
+        app: ecommerce-backend
+    spec:
+      containers:
+      - name: ecommerce-backend
+        image: 372476512951.dkr.ecr.eu-north-1.amazonaws.com/ecommerce-backend:latest # <-- replace with your image URI
+        ports:
+        - containerPort: 3000

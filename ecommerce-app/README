@@ -1,0 +1,22 @@
+# Ecommerce App — 2-Tier Architecture on AWS EKS
+
+This repository contains the infrastructure and application code to deploy a simple e-commerce backend application on an AWS EKS cluster using Terraform and Kubernetes.
+
+## 📂 Repository Structure
+
+- **terraform/**: Infrastructure as Code for AWS VPC, EKS cluster, and S3 backend
+- **k8s/**: Kubernetes manifests for deploying backend application
+- **backend/**: Backend Node.js application and Dockerfile
+
+## 🚀 Quick Start
+
+### 1️⃣ Deploy infrastructure
+
+```bash
+cd terraform/vpc
+terraform init
+terraform apply
+
+cd ../eks
+terraform init
+terraform apply

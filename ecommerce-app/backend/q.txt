@@ -1,0 +1,34 @@
+{
+    "imageDetails": [
+        {
+            "registryId": "372476512951",
+            "repositoryName": "ecommerce-backend",
+            "imageDigest": "sha256:96aa4ffdc27a67da1a4108a3d0a179b4ca6a773471213025dadfb57c7b880afb",
+            "imageSizeInBytes": 47054212,
+            "imagePushedAt": "2025-05-11T09:44:18.033000+02:00",
+            "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+            "artifactMediaType": "application/vnd.oci.image.config.v1+json",
+            "lastRecordedPullTime": "2025-05-11T09:44:18.429000+02:00"
+        },
+        {
+            "registryId": "372476512951",
+            "repositoryName": "ecommerce-backend",
+            "imageDigest": "sha256:b6609aa76562bc140785a0ec9f9ddd95c421ded1bfba9349b1216358d2af7752",
+            "imageSizeInBytes": 1272,
+            "imagePushedAt": "2025-05-11T09:44:18.069000+02:00",
+            "imageManifestMediaType": "application/vnd.oci.image.manifest.v1+json",
+            "artifactMediaType": "application/vnd.oci.image.config.v1+json"
+        },
+        {
+            "registryId": "372476512951",
+            "repositoryName": "ecommerce-backend",
+            "imageDigest": "sha256:10d36c54481430ad9324e8d45134d182809dad4d86c387807a51b0834b244229",
+            "imageTags": [
+                "latest"
+            ],
+            "imageSizeInBytes": 47054212,
+            "imagePushedAt": "2025-05-11T09:44:18.546000+02:00",
+            "imageManifestMediaType": "application/vnd.oci.image.index.v1+json"
+        }
+    ]
+}
